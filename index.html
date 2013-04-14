@@ -1,0 +1,114 @@
+<!-- /*! TEDxTeguigalpa - v0.1.0 - 2013-04-13
+* http://revls.alejo.in/
+* Copyright (c) 2013 Alejandro Morales; Licensed MIT */
+ --><!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>TEDxTegucigalpa 2013 :: Abriendo Caminos</title>
+    <meta name="description" content="">
+    <meta name="author" content="Revls">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="token.ig" content="329197460.f59def8.283ef3285f2847d0b810dd549f2cf292">
+    <meta http-equiv="cleartype" content="on">
+    <link rel="stylesheet" href="build/vendor.css">
+    <link rel="stylesheet" href="build/app.css">
+    <link rel="apple-touch-icon" href="apple-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-ipad.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-iphone-retina-display.png">
+  </head>
+  <body class="app">
+    <section id="main">
+      <header>
+        <nav class="left"><a href="#features" data-router="aside" data-icon="list-th"></a></nav>
+        <h1 class="title centered text extra-bold">TEDxTegucigalpa</h1>
+        <nav class="right"><a href="#second" data-router="section" data-icon="share"></a></nav>
+      </header>
+      <article id="big" class="active list indented"></article>
+    </section>
+    <section id="timeline">
+      <header>
+        <nav class="left"><a href="#features" data-router="aside" data-icon="list-th"></a></nav>
+        <h1 class="title centered text extra-bold">TEDxTegucigalpa</h1>
+        <nav class="right"><a href="#second" data-router="section" data-icon="share"></a></nav>
+      </header>
+      <nav class="groupbar"><a data-icon="grid" data-label="Timeline"></a></nav>
+      <article class="list scroll indented timeline active">
+        <ul id="list">
+          <li class="img"><img src="http://farm9.staticflickr.com/8304/7845631688_00662d6f09_z.jpg">
+            <h2><span><strong class="user">@samuel3r: </strong>Parte del staff en #TEDxTegucigalpa</span></h2>
+          </li>
+          <li data-image="https://twimg0-a.akamaihd.net/profile_images/3065547438/d41330f7fdefe40969c0263705d9ba24_normal.jpeg" class="txt">
+            <div class="right">hace 2 min</div><strong>@_alejandromg dijo:</strong><small>Abriendo caminos y llegando a #TEDxTegucigalpa.    </small>
+          </li>
+          <li class="img"><img src="http://farm9.staticflickr.com/8428/7845582266_e127868529_z.jpg">
+            <h2><span><strong class="user">@staff: </strong>Transmitiendo en vivo</span></h2>
+          </li>
+          <li class="img"><img src="http://farm9.staticflickr.com/8432/7845613290_4575ec7f50_z.jpg">
+            <h2><span><strong class="user">@shirley: </strong>Shirley Paz deleitandonos con música en vivo</span></h2>
+          </li>
+        </ul>
+      </article>
+    </section>
+    <aside id="features">
+      <header data-title="Menu">
+        <nav class="left"><a href="#" data-icon="list-th" class="buttons">   </a></nav>
+      </header>
+      <article class="active list">
+        <ul>
+          <li class="current"><a href="#timeline" data-router="section" data-icon="list-alt"><strong>  Timeline</strong></a></li>
+          <li><a href="#schedule" data-router="section" data-icon="calendar"><strong>  Horario</strong></a></li>
+          <li><a href="#about" data-router="section" data-icon="road"><strong> Abriendo Caminos</strong></a></li>
+          <li><a href="#about" data-router="section" data-icon="group"><strong>  TEDxTegucigalpa</strong></a></li>
+          <li><a href="#settings" data-router="section" data-icon="cogs"><strong>  Ajustes</strong></a></li>
+          <li><a href="#about" data-router="section" data-icon="bullhorn"><strong>  Acerca</strong></a></li>
+        </ul>
+      </article>
+    </aside>
+    <section id="schedule">
+      <header>
+        <nav class="left"><a href="#features" data-router="aside" data-icon="list-th"></a></nav>
+        <h1 class="title centered text extra-bold">TEDxTegucigalpa</h1>
+        <nav class="right"><a href="#second" data-router="section" data-icon="share"></a></nav>
+      </header>
+      <nav class="groupbar"><a data-icon="calendar" data-label="Horario"></a></nav>
+      <article id="mhor" class="active list indented scroll">
+        <ul id="horario"></ul>
+      </article>
+    </section>
+    <div id="templates">
+      <script id="simgs" type="text/html">
+        <% for ( var i = 0; i < data.length; i++ ) { %>
+          <li id="<%=data[i].id%>">
+            <img src="<%=data[i].src%>">
+            <h2>
+              <span><%=data[i].text%></span>
+              </h2>
+          </li>
+        <% } %>
+      </script>
+      <script id="stext" type="text/html">
+        <li data-image="<%= img %>">
+        <strong><%= user %> dijo:</strong>
+        <small><%= text %></small>
+        </li>
+      </script>
+      <script id="sitem" type="text/html">
+        <% for ( var i = 0; i < data.length; i++ ) { %>
+          <li class="thumb" data-image="<%=data[i].img%>">
+            <div class="right"><%=TEDx.time(Number(data[i].time)).format('HH:mm')%></div>
+            <img src="<%=data[i].img%>" />
+            <strong><%=data[i].title%></strong>
+            <small><%=data[i].speaker%></small>
+          </li>
+        <% } %>
+      </script>
+    </div>
+    <script src="build/vendor.js"></script>
+    <script src="build/app.js"></script>
+  </body>
+</html>

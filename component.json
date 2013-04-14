@@ -1,0 +1,8 @@
+{
+  "name": "m.TEDx2013",
+  "version": "0.0.0",
+  "dependencies": {
+    "moment": "~2.0.0",
+    "lungo": "~2.1.0"
+  }
+}
