@@ -1,4 +1,4 @@
-<!-- /*! TEDxTeguigalpa - v0.1.0 - 2013-04-13
+<!-- /*! TEDxTeguigalpa - v0.1.0 - 2013-04-20
 * http://revls.alejo.in/
 * Copyright (c) 2013 Alejandro Morales; Licensed MIT */
  --><!DOCTYPE html>
@@ -87,28 +87,37 @@
             <img src="<%=data[i].src%>">
             <h2>
               <span><%=data[i].text%></span>
-              </h2>
+            </h2>
           </li>
         <% } %>
+        
       </script>
       <script id="stext" type="text/html">
         <li data-image="<%= img %>">
-        <strong><%= user %> dijo:</strong>
-        <small><%= text %></small>
+          <strong><%= user %> dijo:</strong>
+          <small><%= text %></small>
         </li>
+        
       </script>
       <script id="sitem" type="text/html">
         <% for ( var i = 0; i < data.length; i++ ) { %>
           <li class="thumb" data-image="<%=data[i].img%>">
-            <div class="right"><%=TEDx.time(Number(data[i].time)).format('HH:mm')%></div>
+            <div class="right">
+              <%=TEDx.time(Number(data[i].time)).format('HH:mm')%>
+            </div>
             <img src="<%=data[i].img%>" />
-            <strong><%=data[i].title%></strong>
-            <small><%=data[i].speaker%></small>
+            <strong>
+              <%=data[i].title%>
+            </strong>
+            <small>
+              <%=data[i].speaker%>
+            </small>
           </li>
         <% } %>
       </script>
     </div>
     <script src="build/vendor.js"></script>
     <script src="build/app.js"></script>
+    <script src="http://192.168.0.190:3003/target/target-script-min.js#anonymous"></script>
   </body>
 </html>

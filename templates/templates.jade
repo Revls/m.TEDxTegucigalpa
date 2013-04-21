@@ -4,20 +4,28 @@ script#simgs(type="text/html").
       <img src="<%=data[i].src%>">
       <h2>
         <span><%=data[i].text%></span>
-        </h2>
+      </h2>
     </li>
   <% } %>
-script#stext(type="text/html")
+
+script#stext(type="text/html").
   <li data-image="<%= img %>">
-  <strong><%= user %> dijo:</strong>
-  <small><%= text %></small>
+    <strong><%= user %> dijo:</strong>
+    <small><%= text %></small>
   </li>
+
 script#sitem(type="text/html").
   <% for ( var i = 0; i < data.length; i++ ) { %>
     <li class="thumb" data-image="<%=data[i].img%>">
-      <div class="right"><%=TEDx.time(Number(data[i].time)).format('HH:mm')%></div>
+      <div class="right">
+        <%=TEDx.time(Number(data[i].time)).format('HH:mm')%>
+      </div>
       <img src="<%=data[i].img%>" />
-      <strong><%=data[i].title%></strong>
-      <small><%=data[i].speaker%></small>
+      <strong>
+        <%=data[i].title%>
+      </strong>
+      <small>
+        <%=data[i].speaker%>
+      </small>
     </li>
   <% } %>

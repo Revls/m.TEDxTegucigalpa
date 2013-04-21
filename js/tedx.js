@@ -21,7 +21,7 @@ TEDx.extend({
   Places: {},
   $: window.$$,
   time: moment,
-  server: 'http://localhost:3001/',
+  server: 'http://192.168.0.190:3001/',
   get: function (tx){
     if (TEDx[tx]) return TEDx[tx]
     return null
@@ -46,8 +46,26 @@ TEDx.time.lang('es')
 TEDx.set('topic', 'tegucigalpa')
 
 /// Hack ;_;
-window.onhashchange = function (ev){
-  var hash = location.hash.replace('#','')
+var C = Lungo.Constants
+var lng = Lungo
+
+lng.dom(C.QUERY.SECTION_ROUTER_TOUCH).touch(_onSection);
+lng.dom(C.QUERY.ARTICLE_ROUTER_TOUCH).touch(_onSection);
+lng.dom(C.QUERY.SECTION_ROUTER_TAP).tap(_onSection);
+lng.dom(C.QUERY.ARTICLE_ROUTER_TAP).tap(_onSection);
+lng.dom(C.QUERY.ASIDE_ROUTER).touch(_onSection);
+lng.dom(C.QUERY.MENU_ROUTER).touch(_onSection);
+// lng.dom(QUERY.MENU_HREF).touch(_closeMenu);
+
+// window.onhashchange = 
+function _onSection(ev){
+  el = lng.dom(this)
+  var hash = el.data("view-section")
+  
+  hash = hash || location.hash.replace('#','')
+  console.log('hash changedr' + hash  )
   if (hash && TEDx.Places[hash]) TEDx.Places[hash].enter()
 }
+
+
 }()
